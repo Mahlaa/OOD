@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class Cell{
+class Cell{
 
 	public int val;
 	public boolean isBomb = false;
@@ -17,13 +17,18 @@ public class Cell{
 			isGussed = true;
 		}
 	
+		return true;
 	}
 	
-	public boolean toggleGuess(){}
+	public boolean toggleGuess(){
+	
+		return true;
+	
+	}
 
 }
 
-public class Board{
+class Board{
 
 	public int nRows;
 	public int nCols;
@@ -48,8 +53,8 @@ public class Board{
 	
 	public void SetCells(){
 	
-		for(int i : nRows){
-			for (int j : nCols){
+		for(int i=0 ; i < nRows ; i++){
+			for (int j = 0 ;  j < nCols ; j++){
 				Cell newCell = new Cell();
 				newCell.col = j;
 				newCell.row = i;
@@ -66,7 +71,7 @@ public class Board{
 		int i,j;
 		for (Cell cell : Bombs){
 			i = cell.row;
-			j = row.col;
+			j = cell.col;
 			cells[i][j].isBomb = true;
 		}
 	
@@ -76,7 +81,7 @@ public class Board{
 		int i,j;
 		for (Cell cell : Empty){
 			i = cell.row;
-			j = row.col;
+			j = cell.col;
 			cells[i][j].isEmpty = true;
 		}
 	
@@ -84,9 +89,9 @@ public class Board{
 	
 	
 	public void set_nums(){
-		int numbomb = 0;
-		for (int i:nRows){
-			for(int j : nCols){
+		int numbombs = 0;
+		for (int i=0 ; i < nRows ; i++){
+			for(int j = 0 ;  j < nCols ; j++){
 				numbombs = 0;
 				if(cells[i][j].isBomb != true && cells[i][j].isEmpty != true){
 				//i-1,j - i-1,j-1 - i-1,j+1 same for i , i+1 
@@ -124,19 +129,19 @@ public class Board{
 }
 
 
-public class Player{
+class Player{
 
 	public String Name;
 	
 	
 	public void Set_name(){
 		Scanner sc = new Scanner(System.in);
-		Name = sn.next();
+		Name = sc.next();
 	
 	}
 	
 	public int[] set_Cell(){
-		int[2] a;
+		int[] a = new int[2];
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What is the number of rows?");
 		a[0] = sc.nextInt();
@@ -148,27 +153,37 @@ public class Player{
 }
 
 
-public class Game{
+class Game{
 
 	public Player player;
 	public Board board;
 	
 	
-	public boolean Win(){}
+	public boolean Win(){
+	
+		return true;
+	}
 	
 	public void start(){
-		int[2] a;
+		int[] a = new int[2];
 		a = player.set_Cell();
 		board.nRows = a[0];
 		board.nCols = a[1];
 	
 	}
 	
-	public boolean Play(){
-		
+	public void Play(){
 	
 	}
 	
 	
+
+}
+
+
+
+public class main{
+
+	public static void main(String[] args){}
 
 }
